@@ -1,0 +1,104 @@
+/* Mobile-first styles for smaller screens */
+
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header and Navigation */
+header {
+    background-color: #004d40;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+header h1 {
+    font-size: 1.5rem;
+}
+
+nav a#menu {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    font-size: 2rem;
+    padding: 0.5rem;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: none; /* Hide the menu by default */
+    flex-direction: column;
+}
+
+nav ul.responsive {
+    display: flex; /* Show the menu when the .responsive class is added */
+}
+
+nav a:not(#menu) {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+nav a:not(#menu):hover {
+    background-color: #00796b;
+}
+
+/* Main Content and Gallery */
+main {
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+main h1 {
+    text-align: center;
+    color: #333;
+    font-size: 2rem;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr; /* One column for mobile view */
+    gap: 1rem;
+}
+
+figure {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+figure img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+figcaption {
+    margin-top: 0.5rem;
+    font-style: italic;
+    color: #555;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #333;
+    color: #fff;
+}
