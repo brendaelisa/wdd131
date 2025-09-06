@@ -54,8 +54,11 @@ nav a:not(#menu) {
 /* Corrected: Added the :hover pseudo-class for navigation links */
 nav a:not(#menu):hover {
     background-color: #00796b;
+    
 }
-
+nav a:hover {
+    background-color: #0aa190;
+}
 /* Main Content and Gallery */
 main {
     max-width: 960px;
