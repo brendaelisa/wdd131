@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Argentina: A beautiful country</title>
+    <meta name="description" content="Explore Argentina, a country of rich culture, stunning landscapes, and delicious food.">
+    <meta name="author" content="Your Full Name">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/place.css">
+    <script src="scripts/place.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Argentina</h1>
+    </header>
+    <main>
+        <div class="hero">
+            <picture>
+                <source srcset="images/hero-small.webp" media="(max-width: 500px)">
+                <source srcset="images/hero-medium.webp" media="(max-width: 900px)">
+                <img src="images/hero-large.webp" alt="Argentina Hero Image" loading="lazy">
+            </picture>
+        </div>
+        <div class="grid-container">
+            <section class="card">
+                <h2>About</h2>
+                <p>Argentina is a beautiful country in South America, known for its vibrant culture, diverse geography, and rich history. From the bustling streets of Buenos Aires to the stunning natural beauty of Patagonia, Argentina offers a wide range of experiences.</p>
+            </section>
+            <section class="card">
+                <h2>Data</h2>
+                <ul>
+                    <li>Population: 46 million</li>
+                    <li>Capital: Buenos Aires</li>
+                    <li>Language: Spanish</li>
+                </ul>
+            </section>
+            <section class="card weather-card">
+                <h2>Weather <span class="weather-icon"></span></h2>
+                <div class="weather-data">
+                    <p>Temperature: <span id="temp">25</span> °C</p>
+                    <p>Wind Speed: <span id="wind-speed">15</span> km/h</p>
+                    <p>Wind Chill: <span id="wind-chill"></span></p>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <p>&copy;<span id="currentyear"></span> | Brenda Basilico | Argentina</p>
+        <p id="lastModified"></p>
+    </footer>
+</body>
+</html>

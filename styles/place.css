@@ -1,0 +1,66 @@
+:root {
+    --primary-color: #007bff; /* Argentina's light blue */
+    --secondary-color: #f7d24a; /* Argentina's gold */
+    --accent-color: #333;
+    --background-color: #f4f4f4;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--accent-color);
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+.hero img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.grid-container {
+    display: grid;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 0.5rem;
+    margin-top: 0;
+}
+
+.weather-icon::before {
+    content: '☀️'; /* Static emoji for larger screens */
+    font-size: 1.5rem;
+    vertical-align: middle;
+}
+
+/* Pseudo-element for the larger screen view */
+.weather-card h2::after {
+    content: '⛅';
+    padding-left: 0.5rem;
+}
+
+/* Media Query for larger screens */
+@media (min-width: 600px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
