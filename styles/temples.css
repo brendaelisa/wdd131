@@ -13,7 +13,7 @@ header {
     background-color: #004d40;
     color: #fff;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
     padding: 1rem;
 }
@@ -34,7 +34,7 @@ nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: none; /* Hide the menu by default */
+    display: none; /* Hide the menu by default on mobile */
     flex-direction: column;
 }
 
@@ -51,10 +51,10 @@ nav a:not(#menu) {
     transition: background-color 0.3s ease;
 }
 
-
 nav a:hover {
     background-color: #0aa190;
 }
+
 /* Main Content and Gallery */
 main {
     max-width: 960px;
@@ -62,16 +62,16 @@ main {
     padding: 0 1rem;
 }
 
-main h1 {
+main h1, main h2 {
     text-align: center;
     color: #333;
+}
+
+main h1 {
     font-size: 2rem;
 }
 
-/* New: Added h2 tag style */
 main h2 {
-    text-align: center;
-    color: #555;
     margin-bottom: 1rem;
 }
 
@@ -94,11 +94,13 @@ figure img {
     height: auto;
     display: block;
     margin: 0 auto;
-    transition: transform 0.3s ease; /* Transición para un efecto suave */
+    transition: transform 0.3s ease;
 }
+
 figure img:hover {
-    transform: scale(1.05); /* Agranda la imagen un 5% */
+    transform: scale(1.05);
 }
+
 figcaption {
     margin-top: 0.5rem;
     font-style: italic;
