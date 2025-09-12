@@ -1,3 +1,4 @@
+/* Variables Globales */
 :root {
     --primary-color: #007bff; /* Argentina's light blue */
     --secondary-color: #f7d24a; /* Argentina's gold */
@@ -5,6 +6,7 @@
     --background-color: #f4f4f4;
 }
 
+/* Estilos Generales (Mobile First) */
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
@@ -13,6 +15,7 @@ body {
     color: var(--accent-color);
 }
 
+/* Encabezado */
 header {
     background-color: var(--primary-color);
     color: white;
@@ -20,18 +23,21 @@ header {
     text-align: center;
 }
 
+/* Imagen Hero */
 .hero img {
     width: 100%;
     height: auto;
     display: block;
 }
 
+/* Contenedor de la Galería */
 .grid-container {
     display: grid;
     gap: 1rem;
     padding: 1rem;
 }
 
+/* Estilos de las Tarjetas */
 .card {
     background-color: white;
     padding: 1.5rem;
@@ -46,21 +52,40 @@ header {
     margin-top: 0;
 }
 
-.weather-icon::before {
-    content: '☀️'; /* Static emoji for larger screens */
-    font-size: 1.5rem;
+/* Estilo del Ícono del Clima (SVG para Vista Móvil) */
+.weather-icon {
+    background-image: url('../images/weather-icon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
     vertical-align: middle;
 }
 
-/* Pseudo-element for the larger screen view */
-.weather-card h2::after {
-    content: '⛅';
-    padding-left: 0.5rem;
+/* Pie de Página */
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #333;
+    color: #fff;
 }
 
-/* Media Query for larger screens */
+
+/* Estilos para pantallas de más de 600px */
 @media (min-width: 600px) {
     .grid-container {
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Oculta el ícono SVG en pantallas grandes */
+    .weather-icon {
+        background-image: none;
+    }
+    
+    /* Muestra el emoticono con un pseudo-elemento */
+    .weather-card h2::after {
+        content: '⛅';
+        padding-left: 0.5rem;
     }
 }
