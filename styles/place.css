@@ -54,7 +54,7 @@ header {
 
 /* Estilo del Ícono del Clima (SVG para Vista Móvil) */
 .weather-icon {
-    background-image: url('../images/weather-icon.png');
+    background-image: url('../images/weather-icon.svg');
     background-size: contain;
     background-repeat: no-repeat;
     display: inline-block;
