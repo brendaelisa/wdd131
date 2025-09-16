@@ -1,0 +1,135 @@
+/* General Styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header and Navigation */
+header {
+  background-color: #004d40;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+header h1 {
+  font-size: 1.5rem;
+}
+
+nav a#menu {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  font-size: 2rem;
+  padding: 0.5rem;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: none;
+  flex-direction: column;
+}
+
+nav ul.responsive {
+  display: flex;
+}
+
+nav a:not(#menu) {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #0aa190;
+}
+
+/* Main Content and Gallery */
+main {
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+main h1, main h2 {
+  text-align: center;
+  color: #333;
+}
+
+main h1 {
+  font-size: 2rem;
+}
+
+main h2 {
+  margin-bottom: 1rem;
+}
+
+/* Se elimina la clase 'gallery' del CSS original ya que no se usa con el nuevo código JS */
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr; /* Una columna para dispositivos móviles */
+  gap: 1rem;
+}
+
+/* Nuevos estilos para las tarjetas de templo generadas con JavaScript */
+.temple-card {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.temple-card h3 {
+  color: #333;
+  margin-top: 0;
+}
+
+.temple-card p {
+  color: #555;
+  margin: 0.5rem 0;
+}
+
+.temple-card img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+/* Media query para pantallas más grandes */
+@media screen and (min-width: 600px) {
+  nav ul {
+    display: flex;
+    flex-direction: row;
+  }
+
+  nav a#menu {
+    display: none;
+  }
+
+  /* Aplica el diseño de cuadrícula para pantallas grandes */
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem 0;
+  background-color: #333;
+  color: #fff;
+}
