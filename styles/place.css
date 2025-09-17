@@ -52,11 +52,14 @@ header {
     margin-top: 0;
 }
 
-/* Estilo del Ícono del Clima (SVG para Vista Móvil) */
+/* Iconos de clima */
+.emoji-weather {
+    display: none; /* por defecto oculto */
+    font-size: 1.5rem;
+    vertical-align: middle;
+}
+
 .weather-icon {
-    background-image: url('../images/weather-icon.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
     display: inline-block;
     width: 2rem;
     height: 2rem;
@@ -71,21 +74,28 @@ footer {
     color: #fff;
 }
 
-
 /* Estilos para pantallas de más de 600px */
 @media (min-width: 600px) {
     .grid-container {
         grid-template-columns: repeat(3, 1fr);
     }
 
-    /* Oculta el ícono SVG en pantallas grandes */
-    .weather-icon {
-        background-image: none;
+    /* En pantallas grandes: mostrar SVG y ocultar emoji */
+    .emoji-weather {
+        display: none;
     }
-    
-    /* Muestra el emoticono con un pseudo-elemento */
-    .weather-card h2::after {
-        content: '⛅';
-        padding-left: 0.5rem;
+    .weather-icon {
+        display: inline-block;
+    }
+}
+
+/* Estilos para pantallas pequeñas (<= 600px) */
+@media (max-width: 600px) {
+    /* En móvil: mostrar emoji y ocultar SVG */
+    .emoji-weather {
+        display: inline;
+    }
+    .weather-icon {
+        display: none;
     }
 }
