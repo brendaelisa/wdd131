@@ -122,24 +122,28 @@ document.getElementById("home").addEventListener("click", () => {
 });
 
 document.getElementById("old").addEventListener("click", () => {
-    const oldTemples = temples.filter(temple => new Date(temple.dedicated).getFullYear() < 1900);
+    // Filtro para los templos más antiguos de Sudamérica (dedicados antes de 1980)
+    const oldTemples = temples.filter(temple => new Date(temple.dedicated).getFullYear() < 1980);
     createTempleCards(oldTemples);
     document.getElementById("current-filter").textContent = "Old Temples";
 });
 
 document.getElementById("new").addEventListener("click", () => {
+    // Filtro para los templos dedicados después de 2000
     const newTemples = temples.filter(temple => new Date(temple.dedicated).getFullYear() > 2000);
     createTempleCards(newTemples);
     document.getElementById("current-filter").textContent = "New Temples";
 });
 
 document.getElementById("large").addEventListener("click", () => {
-    const largeTemples = temples.filter(temple => temple.area > 90000);
+    // Filtro para los templos más grandes de Sudamérica (con más de 25,000 pies cuadrados)
+    const largeTemples = temples.filter(temple => temple.area > 25000);
     createTempleCards(largeTemples);
     document.getElementById("current-filter").textContent = "Large Temples";
 });
 
 document.getElementById("small").addEventListener("click", () => {
+    // Filtro para los templos más pequeños (con menos de 10,000 pies cuadrados)
     const smallTemples = temples.filter(temple => temple.area < 10000);
     createTempleCards(smallTemples);
     document.getElementById("current-filter").textContent = "Small Temples";
