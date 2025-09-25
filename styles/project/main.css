@@ -1,0 +1,473 @@
+/* Importación de fuentes de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:wght@400;700&display=swap');
+
+/* Variables CSS para colores */
+:root {
+    --primary-color: #264653; /* Azul oscuro */
+    --secondary-color: #2A9D8F; /* Verde azulado */
+    --accent-color: #E9C46A; /* Amarillo ocre */
+    --background-color: #F4A261; /* Naranja rojizo claro */
+    --text-color: #FFFFFF; /* Blanco */
+    --dark-text-color: #333333; /* Texto oscuro para contrastar con fondos claros */
+}
+
+/* Estilos generales del cuerpo */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que el footer esté abajo */
+}
+
+/* Encabezados */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lora', serif;
+    color: var(--primary-color); /* Color principal para encabezados */
+    margin-top: 0;
+}
+
+h1 { font-size: 2.5em; }
+h2 { font-size: 2em; }
+h3 { font-size: 1.5em; }
+
+/* Enlaces globales */
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* HEADER */
+header {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: 1rem 2%;
+    display: flex;
+    flex-direction: column; /* Apilado en móvil */
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    width: 100%; /* Asegura que ocupe todo el ancho */
+    box-sizing: border-box; /* Incluye padding en el ancho */
+}
+
+.logo {
+    font-family: 'Lora', serif;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem; /* Espacio debajo del logo en móvil */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Columnas en móvil */
+    align-items: center;
+    width: 100%;
+}
+
+nav ul li {
+    margin: 0.5rem 0;
+    width: 100%;
+    text-align: center;
+}
+
+nav ul li a {
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    display: block;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: var(--secondary-color);
+    text-decoration: none;
+}
+
+/* MAIN CONTENT */
+main {
+    flex-grow: 1; /* Permite que el contenido principal ocupe el espacio restante */
+    padding: 1rem 2%;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+section {
+    background-color: var(--text-color); /* Fondo blanco para las secciones de contenido */
+    color: var(--dark-text-color); /* Texto oscuro en secciones claras */
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* HERO SECTION (index.html) */
+.hero {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 3rem 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.hero h1 {
+    color: var(--text-color);
+    font-size: 2.8em;
+    margin-bottom: 0.5em;
+}
+
+.hero p {
+    font-size: 1.1em;
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+}
+
+.button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #d1b15e; /* Un tono más oscuro del acento */
+    text-decoration: none;
+}
+
+/* BOOK OF THE MONTH (index.html) */
+.book-of-the-month h2 {
+    text-align: center;
+    color: var(--primary-color);
+}
+
+#featured-book {
+    display: flex;
+    flex-direction: column; /* Apilado en móvil */
+    align-items: center;
+    gap: 1.5rem;
+}
+
+#featured-book img {
+    max-width: 180px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+#featured-book .book-card {
+    text-align: center;
+}
+
+/* ABOUT US (index.html) */
+.about-us h2 {
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.about-us .features {
+    display: flex;
+    flex-direction: column; /* Apilado en móvil */
+    gap: 1rem;
+}
+
+.about-us .features p {
+    background-color: var(--background-color);
+    color: var(--dark-text-color);
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.05);
+}
+
+/* BOOK CATALOG (books.html) */
+.books-header {
+    text-align: center;
+}
+
+.books-header h1 {
+    color: var(--primary-color);
+}
+
+.filter-and-search {
+    display: flex;
+    flex-direction: column; /* Apilado en móvil */
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.filter-and-search input[type="text"] {
+    padding: 0.7rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.filter-and-search button {
+    padding: 0.7rem 1.2rem;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.filter-and-search button:hover {
+    background-color: #207e74; /* Un tono más oscuro */
+}
+
+.book-list {
+    display: grid;
+    grid-template-columns: 1fr; /* Una columna en móvil */
+    gap: 1.5rem;
+}
+
+.book-card {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.book-card img {
+    max-width: 150px;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.book-card h3 {
+    color: var(--accent-color);
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.book-card p {
+    font-size: 0.9em;
+    margin-bottom: 0.5rem;
+}
+
+.book-card .summary {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* CONTACT FORM (contact.html) */
+.contact-form h1, .contact-form p {
+    text-align: center;
+    color: var(--primary-color);
+}
+
+#membership-form {
+    background-color: var(--primary-color);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#membership-form label {
+    color: var(--text-color);
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+}
+
+#membership-form input[type="text"],
+#membership-form input[type="email"],
+#membership-form textarea {
+    padding: 0.8rem;
+    border: 1px solid #4a7d8c; /* Borde más oscuro */
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: #385b6b; /* Fondo ligeramente más claro que el primary */
+    color: var(--text-color);
+}
+
+#membership-form input::placeholder,
+#membership-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+#membership-form button[type="submit"] {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+}
+
+#membership-form button[type="submit"]:hover {
+    background-color: #d1b15e;
+}
+
+#form-message {
+    text-align: center;
+    font-weight: bold;
+    padding: 0.5rem;
+    border-radius: 5px;
+    display: none; /* Oculto por defecto */
+}
+
+#form-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    display: block;
+}
+
+#form-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    display: block;
+}
+
+/* FOOTER */
+footer {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 1.5rem 2%;
+    margin-top: auto; /* Empuja el footer hacia abajo */
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+footer a {
+    color: var(--accent-color);
+}
+
+/* ==========================================================
+// MEDIA QUERIES (PARA DISEÑO RESPONSIVO)
+// ========================================================== */
+
+/* Tablets y Escritorio (anchura mínima de 768px) */
+@media (min-width: 768px) {
+    header {
+        flex-direction: row; /* Horizontal en escritorio */
+        justify-content: space-between;
+        padding: 1rem 5%;
+    }
+
+    .logo {
+        margin-bottom: 0;
+    }
+
+    nav ul {
+        flex-direction: row; /* Horizontal en escritorio */
+        width: auto;
+    }
+
+    nav ul li {
+        margin: 0 0.8rem;
+        width: auto;
+    }
+
+    .hero h1 {
+        font-size: 3.5em;
+    }
+
+    /* HOME PAGE */
+    #featured-book {
+        flex-direction: row; /* Horizontal en escritorio */
+        justify-content: center;
+        text-align: left;
+    }
+
+    #featured-book .book-card {
+        text-align: left;
+        display: flex;
+        flex-direction: row;
+        gap: 1.5rem;
+        align-items: flex-start;
+        max-width: 800px; /* Limita el ancho de la tarjeta destacada */
+        margin: 0 auto;
+    }
+
+    #featured-book .book-card img {
+        margin-bottom: 0;
+        max-width: 150px;
+    }
+
+    .about-us .features {
+        flex-direction: row; /* Horizontal en escritorio */
+        justify-content: space-around;
+    }
+
+    .about-us .features p {
+        flex: 1; /* Distribuye el espacio equitativamente */
+        max-width: 30%; /* Limita el ancho de cada característica */
+    }
+
+    /* BOOKS PAGE */
+    .filter-and-search {
+        flex-direction: row; /* Horizontal en escritorio */
+        justify-content: center;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .filter-and-search input[type="text"] {
+        flex-grow: 1; /* Ocupa el espacio restante */
+    }
+
+    .book-list {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 2 o 3 columnas */
+    }
+
+    .book-card {
+        flex-direction: column; /* Vuelve a columna para las tarjetas individuales */
+        align-items: center;
+    }
+}
+
+/* Escritorios grandes (anchura mínima de 1024px) */
+@media (min-width: 1024px) {
+    header {
+        padding: 1rem 10%;
+    }
+
+    main {
+        padding: 1.5rem 0; /* Ajusta el padding para escritorios */
+    }
+
+    .hero h1 {
+        font-size: 4em;
+    }
+}
