@@ -471,3 +471,173 @@ footer a {
         font-size: 4em;
     }
 }
+
+/* Estilo para el contenedor principal de la sección de detalles */
+#book-detail-container {
+    /* El contenedor ya tiene el estilo de 'section' (fondo blanco, sombra) */
+    padding: 2rem;
+    background-color: var(--text-color);
+    color: var(--dark-text-color);
+}
+
+/* Enlace de 'Volver' en el encabezado de la página de detalles */
+header nav a {
+    /* Utiliza el color de acento para el enlace de navegación */
+    color: var(--accent-color);
+    padding: 0.5rem 0; /* Ajusta el padding para que no se vea como botón */
+    display: inline-block;
+}
+
+header nav a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+    background-color: transparent; /* Evita que el hover del header lo pinte */
+}
+
+
+/* Wrapper interno para organizar la portada y la información */
+.detail-wrapper {
+    display: flex;
+    flex-direction: column; /* Apilado por defecto en móvil */
+    gap: 2rem;
+    align-items: center; /* Centra los elementos apilados */
+    text-align: center;
+}
+
+/* Estilo para la imagen de la portada del libro */
+.detail-cover {
+    max-width: 250px; /* Tamaño de la portada más grande que en el catálogo */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+    flex-shrink: 0; /* Evita que se encoja */
+}
+
+/* Estilos para el texto del detalle */
+.detail-info {
+    text-align: center; /* Alineación centrada para móvil */
+    max-width: 600px;
+}
+
+.detail-info h1 {
+    font-size: 3em;
+    color: var(--primary-color);
+    margin-bottom: 0.2rem;
+}
+
+.detail-info h2 {
+    font-size: 1.5em;
+    color: var(--secondary-color);
+    font-style: italic;
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+.detail-info strong {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Separador de línea */
+.detail-info hr {
+    border: 0;
+    height: 1px;
+    background-color: var(--accent-color);
+    margin: 1.5rem auto;
+    width: 50%; /* Línea más corta para centrar la atención */
+}
+
+.detail-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+/* Estilo de la sinopsis completa */
+.summary-full {
+    font-family: 'Lora', serif; /* Usa la fuente serif para el cuerpo de la sinopsis */
+    font-size: 1.1em;
+    line-height: 1.8;
+}
+
+
+
+@media (min-width: 768px) {
+    /* En tabletas y escritorio, muestra la portada y el texto uno al lado del otro */
+    .detail-wrapper {
+        flex-direction: row; /* Horizontal */
+        align-items: flex-start; /* Alinea los elementos en la parte superior */
+        text-align: left; /* Alinea el texto a la izquierda */
+    }
+
+    /* Mueve la información a la izquierda */
+    .detail-info {
+        text-align: left;
+        flex-grow: 1; /* Permite que ocupe el espacio restante */
+    }
+
+    /* La línea separadora solo se extiende por el texto */
+    .detail-info hr {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+
+.references-page h1 {
+    text-align: center;
+    color: var(--primary-color); /* Matches your main header color */
+    margin-bottom: 1rem;
+}
+
+/* Style for the general introductory paragraph */
+.references-page > p {
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 2rem;
+    color: var(--dark-text-color); /* Dark text on white background */
+}
+
+#references-content h2 {
+    color: var(--secondary-color); /* Uses your secondary color for section titles */
+    border-bottom: 2px solid var(--accent-color); /* A nice accent line */
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+}
+
+#references-content ul {
+    list-style: disc; /* Use bullet points */
+    padding-left: 20px;
+    margin-bottom: 2rem;
+}
+
+#references-content li {
+    margin-bottom: 0.8rem;
+    font-size: 1em;
+    line-height: 1.5;
+}
+.whatsapp-float {
+    position: fixed;
+    
+    
+    width: 60px;  
+    height: 60px; 
+    
+    bottom: 25px;
+    right: 25px;
+    background-color: #25d366; 
+    
+    
+    border-radius: 50%; 
+    
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+    z-index: 10;
+    
+    
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    
+    transition: transform 0.3s ease;
+}
