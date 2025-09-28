@@ -1,6 +1,3 @@
-// main.js
-
-// ==== Datos de Libros ====
 const bookData = [
     {
         id: 1,
@@ -61,7 +58,7 @@ const bookData = [
         title: "Frankenstein",
         author: "Mary Shelley",
         genre: "Gothic",
-        summary: "A scientist’s experiment creates a being who seeks acceptance.",
+        summary: "A scientist's experiment creates a being who seeks acceptance.",
         cover: "images/frankenstein.jpg",
         isFeatured: false
     },
@@ -94,9 +91,7 @@ const bookData = [
     }
 ];
 
-// ------------------------------------------------------------------
 
-// ==== Renderizar libros en books.html ====
 function renderBooks(bookArray) {
     const catalog = document.getElementById("book-catalog");
     if (!catalog) return;
@@ -106,105 +101,44 @@ function renderBooks(bookArray) {
         return;
     }
 
-    // Aseguramos que data-book-id y book-clickable estén presentes
     catalog.innerHTML = bookArray.map(book => `
-        <div class="book-card book-clickable" data-book-id="${book.id}">
-            <img src="${book.cover}" alt="${book.title}">
-            <h3>${book.title}</h3>
-            <p><strong>Author:</strong> ${book.author}</p>
-            <p><strong>Genre:</strong> ${book.genre}</p>
-            <p>${book.summary}</p>
-        </div>
-    `).join("");
-
-    // Configuramos los escuchadores de clic
-    setupBookClickHandlers();
-}
-
-// ------------------------------------------------------------------
-
-// ==== Manejar el clic en la tarjeta de un libro (MODIFICADO: Redirección) ====
-function setupBookClickHandlers() {
-    const bookCards = document.querySelectorAll(".book-clickable");
-
-    bookCards.forEach(card => {
-        card.addEventListener("click", () => {
-            // Obtenemos el ID del libro
-            const bookId = card.dataset.bookId;
-
-            // Redirigimos a detail.html con el ID como parámetro de consulta
-            const detailUrl = `detail.html?id=${bookId}`;
-            window.location.href = detailUrl;
-        });
-    });
-}
-
-// ------------------------------------------------------------------
-
-// ==== Libro destacado en index.html ====
-function renderFeaturedBook() {
-    const featured = document.getElementById("featured-book");
-    if (!featured) return;
-
-    const book = bookData.find(b => b.isFeatured);
-    if (book) {
-        // Aseguramos que el libro destacado también es cliqueable
-        featured.innerHTML = `
-            <div class="book-card book-clickable" data-book-id="${book.id}">
+        <a href="detail.html?id=${book.id}" class="book-link">
+            <div class="book-card">
                 <img src="${book.cover}" alt="${book.title}">
                 <h3>${book.title}</h3>
                 <p><strong>Author:</strong> ${book.author}</p>
                 <p><strong>Genre:</strong> ${book.genre}</p>
                 <p>${book.summary}</p>
             </div>
+        </a>
+    `).join("");
+}
+
+
+function renderFeaturedBook() {
+    const featured = document.getElementById("featured-book");
+    if (!featured) return;
+
+    const book = bookData.find(b => b.isFeatured);
+    if (book) {
+        // Enlaza el libro destacado a la página de detalle
+        featured.innerHTML = `
+            <a href="detail.html?id=${book.id}" class="featured-link">
+                <div class="book-card">
+                    <img src="${book.cover}" alt="${book.title}">
+                    <h3>${book.title}</h3>
+                    <p><strong>Author:</strong> ${book.author}</p>
+                    <p><strong>Genre:</strong> ${book.genre}</p>
+                    <p>${book.summary}</p>
+                </div>
+            </a>
         `;
     } else {
         featured.innerHTML = "<p>No featured book selected.</p>";
     }
 }
 
-// ------------------------------------------------------------------
 
-// ==== Lógica para la página de detalles (detail.html) - NUEVO ====
-function renderBookDetail() {
-    const detailContainer = document.getElementById('book-detail-container');
-    if (!detailContainer) return; // No hacer nada si no estamos en detail.html
-
-    // 1. Obtener el ID del parámetro de la URL (e.g., ?id=5)
-    const urlParams = new URLSearchParams(window.location.search);
-    const bookId = parseInt(urlParams.get('id')); 
-
-    if (!bookId) {
-        detailContainer.innerHTML = "<h1>Error: Book ID not found.</h1>";
-        return;
-    }
-
-    // 2. Buscar el libro
-    const book = bookData.find(b => b.id === bookId);
-
-    if (book) {
-        // 3. Renderizar la vista de detalles
-        detailContainer.innerHTML = `
-            <div class="detail-wrapper">
-                <img src="${book.cover}" alt="Cover of ${book.title}" class="detail-cover">
-                <div class="detail-info">
-                    <h1>${book.title}</h1>
-                    <h2>by ${book.author}</h2>
-                    <p><strong>Genre:</strong> ${book.genre}</p>
-                    <hr>
-                    <h3>Sinopsis</h3>
-                    <p class="summary-full">${book.summary}</p>
-                </div>
-            </div>
-        `;
-    } else {
-        detailContainer.innerHTML = `<h1>Book Not Found: ID ${bookId}</h1>`;
-    }
-}
-
-// ------------------------------------------------------------------
-
-// ==== Buscador en books.html (sin cambios) ====
 function setupSearch() {
     const searchInput = document.getElementById("search-input");
     const searchButton = document.getElementById("search-button");
@@ -228,7 +162,7 @@ function setupSearch() {
     });
 }
 
-// ==== Formulario en contact.html (sin cambios) ====
+
 function setupForm() {
     const form = document.getElementById("membership-form");
     if (!form) return;
@@ -238,33 +172,48 @@ function setupForm() {
     form.addEventListener("submit", e => {
         e.preventDefault();
 
-        messageEl.textContent = "Thank you for joining! We’ll be in touch soon.";
+        
         messageEl.classList.remove("hidden");
+        messageEl.textContent = "Thank you for joining! We'll be in touch soon.";
         form.reset();
     });
 }
 
-// ------------------------------------------------------------------
 
-// ==== Inicializar según la página ====
+function renderBookDetails() {
+    const details = document.getElementById("book-details");
+    if (!details) return;
+
+    const params = new URLSearchParams(window.location.search);
+    const id = parseInt(params.get("id"));
+
+    // Find the book using the ID
+    const book = bookData.find(b => b.id === id);
+
+    if (book) {
+        details.innerHTML = `
+            <div class="book-detail-card">
+                <img src="${book.cover}" alt="${book.title}" class="detail-cover">
+                <h2>${book.title}</h2>
+                <p><strong>Author:</strong> ${book.author}</p>
+                <p><strong>Genre:</strong> ${book.genre}</p>
+                
+                <h3>Full Synopsis</h3>
+                <p class="detail-summary">${book.summary}</p>
+                
+                <button onclick="history.back()">⬅ Back</button>
+            </div>
+        `;
+    } else {
+        details.innerHTML = "<p>Error: Book not found or invalid ID.</p>";
+    }
+}
+
+
 document.addEventListener("DOMContentLoaded", () => {
-    // Si estamos en la página del catálogo (books.html)
-    if (document.getElementById("book-catalog")) {
-        renderBooks(bookData); // Esto también configura los clics
-    }
-    
-    // Si estamos en la página de inicio (index.html)
-    if (document.getElementById("featured-book")) {
-        renderFeaturedBook(); 
-        setupBookClickHandlers(); // Para que el libro destacado también redirija
-    }
-    
-    // Si estamos en la página de detalles (detail.html)
-    if (document.getElementById("book-detail-container")) {
-        renderBookDetail(); 
-    }
-    
-    // Funciones que se ejecutan en sus respectivas páginas
+    renderBooks(bookData);
+    renderFeaturedBook();
     setupSearch();
     setupForm();
+    renderBookDetails(); 
 });
